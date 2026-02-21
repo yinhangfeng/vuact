@@ -1,0 +1,14 @@
+{
+  "name": "vuact-noop-renderer",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "main": "./index.ts",
+  "devDependencies": {
+    "vuact": "workspace:^",
+    "vuact-dom": "workspace:^",
+    "@types/react": "*",
+    "@types/react-dom": "*",
+    "vue": "*"
+  }
+}
