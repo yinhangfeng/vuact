@@ -1,0 +1,9 @@
+{
+  "extends": ["./tsconfig.dom-base.json", "./tsconfig.node-base.json"],
+  "include": ["./test/**/*", "*/**/__tests__/**/*", "./packages/vuact-shared"],
+  "exclude": ["./scripts"],
+  "compilerOptions": {
+    "types": ["node", "vitest/globals"],
+    "lib": ["es2023", "dom", "dom.iterable"]
+  }
+}

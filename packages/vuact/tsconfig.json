@@ -1,0 +1,8 @@
+{
+  "extends": "../../tsconfig.dom-base.json",
+  "include": ["./src/**/*"],
+  "exclude": ["./src/__tests__/**/*"],
+  "compilerOptions": {
+    "types": ["../vuact-shared/src/shared.d.ts"]
+  }
+}

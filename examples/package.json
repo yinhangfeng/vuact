@@ -1,0 +1,27 @@
+{
+  "name": "examples",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "clean": "rm -rf dist",
+    "examples:build": "vite build",
+    "examples:dev": "vite",
+    "examples:preview": "vite preview"
+  },
+  "dependencies": {
+    "vuact": "workspace:^",
+    "vuact-dom": "workspace:^",
+    "@vue/repl": "^4.5.1",
+    "react": "*",
+    "react-dom": "*",
+    "vue": "*",
+    "vue-router": "^4.2.5"
+  },
+  "devDependencies": {
+    "@types/react": "*",
+    "@types/react-dom": "*",
+    "@vitejs/plugin-vue": "^5.0.0",
+    "@vitejs/plugin-vue-jsx": "^4.0.0"
+  }
+}

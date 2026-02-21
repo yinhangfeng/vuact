@@ -1,0 +1,87 @@
+{
+  "name": "vuact-dom",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Vuact = Vue + React. It is a compatibility layer that simulates the React runtime in a Vue 3 environment.",
+  "keywords": [
+    "react",
+    "vue",
+    "vuact"
+  ],
+  "license": "MIT",
+  "exports": {
+    ".": {
+      "import": "./src/index.ts"
+    },
+    "./client": {
+      "import": "./src/client.ts"
+    },
+    "./server": {
+      "import": "./src/server.ts"
+    },
+    "./test-utils": {
+      "import": "./src/test-utils.ts"
+    },
+    "./register-dom-components": {
+      "import": "./src/register-dom-components.ts"
+    }
+  },
+  "main": "./src/index.ts",
+  "files": [
+    "dist",
+    "client.js",
+    "server.js",
+    "test-utils.js",
+    "register-dom-components.js",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "vite build",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/react": "*",
+    "@types/react-dom": "*",
+    "@vue/server-renderer": "*",
+    "vuact-shared": "workspace:^",
+    "vue": "*"
+  },
+  "peerDependencies": {
+    "vuact": "workspace:^",
+    "@types/react": ">=18.0.0",
+    "@types/react-dom": ">=18.0.0",
+    "@vue/server-renderer": "^3.5.0",
+    "vue": "^3.5.0"
+  },
+  "publishConfig": {
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.ts",
+        "import": "./dist/index.js",
+        "module": "./dist/index.js"
+      },
+      "./client": {
+        "types": "./dist/client.d.ts",
+        "import": "./dist/client.js",
+        "module": "./dist/client.js"
+      },
+      "./server": {
+        "types": "./dist/server.d.ts",
+        "import": "./dist/server.js",
+        "module": "./dist/server.js"
+      },
+      "./test-utils": {
+        "types": "./dist/test-utils.d.ts",
+        "import": "./dist/test-utils.js",
+        "module": "./dist/test-utils.js"
+      },
+      "./register-dom-components": {
+        "types": "./dist/register-dom-components.d.ts",
+        "import": "./dist/register-dom-components.js",
+        "module": "./dist/register-dom-components.js"
+      }
+    },
+    "main": "./dist/index.js"
+  }
+}

@@ -1,0 +1,40 @@
+import {
+  useCallback,
+  useContext,
+  useDebugValue,
+  useDeferredValue,
+  useEffect,
+  useId,
+  useImperativeHandle,
+  useInsertionEffect,
+  useLayoutEffect,
+  useMemo,
+  useReducer,
+  useRef,
+  useState,
+  useSyncExternalStore,
+  useTransition,
+} from './hooks';
+import { readContext } from './context';
+
+export const currentDispatcher = {
+  current: {
+    readContext,
+    useCallback,
+    useContext,
+    useDebugValue,
+    useDeferredValue,
+    useEffect,
+    useId,
+    useImperativeHandle,
+    useInsertionEffect,
+    useLayoutEffect,
+    useMemo,
+    // useMutableSource,
+    useReducer,
+    useRef,
+    useState,
+    useSyncExternalStore,
+    useTransition,
+  },
+};
