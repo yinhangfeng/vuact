@@ -383,10 +383,10 @@ packages:
     engines: {node: '>=6.0.0'}
 
   '@arco-design/color@0.4.0':
-    resolution: {integrity: sha1-b7RqMzpqHF5MVjL3WPGAeZAYKAw=}
+    resolution: {integrity: sha512-s7p9MSwJgHeL8DwcATaXvWT3m2SigKpxx4JA1BGPHL4gfvaQsmQfrLBDpjOJFJuJ2jG2dMt3R3P8Pm9E65q18g==}
 
   '@arco-design/web-react@2.66.10':
-    resolution: {integrity: sha512-EmLts1q/zbEdtpgZVZ5uhvt+xW5qM+wJQxkBtD7SuKKQvfK3oG4iaZsB5Si5KeX7qvNtYzQmMvtcjlE9h8UKoQ==}
+    resolution: {integrity: sha512-+RVARr5FBLnK/im/hlhhzKcPmOJclMSif29cK83eamGvsiAi7KuGg9+WHoXHe5Nhj73htc2aEX+t5+Ko945kxw==}
     peerDependencies:
       react: ^18.0.0
       react-dom: ^18.0.0
