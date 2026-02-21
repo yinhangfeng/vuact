@@ -237,7 +237,7 @@ async function main() {
     console.log(
       pico.yellow(
         '\nRelease will be done via GitHub Actions.\n' +
-          'Check status at https://github.com/TODO/actions/workflows/release.yml'
+          'Check status at https://github.com/yinhangfeng/vuact/actions/workflows/release.yml'
       )
     );
   }
@@ -302,7 +302,7 @@ async function getCIResult() {
   try {
     const sha = await getSha();
     const res = await fetch(
-      `https://api.github.com/repos/TODO/actions/runs?head_sha=${sha}` +
+      `https://api.github.com/repos/yinhangfeng/vuact/actions/runs?head_sha=${sha}` +
         `&status=success&exclude_pull_requests=true`
     );
     /** @type {{ workflow_runs: ({ name: string, conclusion: string })[] }} */
@@ -322,7 +322,7 @@ async function isInSyncWithRemote() {
   try {
     const branch = await getBranch();
     const res = await fetch(
-      `https://api.github.com/repos/TODO/commits/${branch}?per_page=1`
+      `https://api.github.com/repos/yinhangfeng/vuact/commits/${branch}?per_page=1`
     );
     const data = await res.json();
     if (data.sha === (await getSha())) {
