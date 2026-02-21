@@ -1,0 +1,9 @@
+{
+  "extends": "./tsconfig.node-base.json",
+  "include": [
+    "vitest.workspace.ts",
+    "**/vite.config.*",
+    "**/vitest.config.*",
+    "packages/build-tools/src/**/*"
+  ]
+}

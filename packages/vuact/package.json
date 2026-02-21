@@ -1,0 +1,80 @@
+{
+  "name": "vuact",
+  "version": "0.1.0",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./src/index.ts"
+    },
+    "./jsx-runtime": {
+      "import": "./src/jsx-runtime.ts"
+    },
+    "./jsx-dev-runtime": {
+      "import": "./src/jsx-dev-runtime.ts"
+    },
+    "./setup-renderer": {
+      "import": "./src/setup-renderer.ts"
+    },
+    "./setup-scheduler": {
+      "import": "./src/setup-scheduler.ts"
+    }
+  },
+  "main": "./src/index.ts",
+  "files": [
+    "dist",
+    "jsx-dev-runtime.js",
+    "jsx-runtime.js",
+    "setup-renderer.js",
+    "setup-scheduler.js",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "vite build",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/react": "*",
+    "@types/react-dom": "*",
+    "@vue/reactivity": "*",
+    "vuact-shared": "workspace:^",
+    "vue": "*"
+  },
+  "peerDependencies": {
+    "@types/react": ">=18.0.0",
+    "@types/react-dom": ">=18.0.0",
+    "@vue/reactivity": "^3.5.0",
+    "vue": "^3.5.0"
+  },
+  "publishConfig": {
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.ts",
+        "import": "./dist/index.js",
+        "module": "./dist/index.js"
+      },
+      "./package.json": "./package.json",
+      "./jsx-runtime": {
+        "types": "./dist/jsx-runtime.d.ts",
+        "import": "./dist/jsx-runtime.js",
+        "module": "./dist/jsx-runtime.js"
+      },
+      "./jsx-dev-runtime": {
+        "types": "./dist/jsx-dev-runtime.d.ts",
+        "import": "./dist/jsx-dev-runtime.js",
+        "module": "./dist/jsx-dev-runtime.js"
+      },
+      "./setup-renderer": {
+        "types": "./dist/setup-renderer.d.ts",
+        "import": "./dist/setup-renderer.js",
+        "module": "./dist/setup-renderer.js"
+      },
+      "./setup-scheduler": {
+        "types": "./dist/setup-scheduler.d.ts",
+        "import": "./dist/setup-scheduler.js",
+        "module": "./dist/setup-scheduler.js"
+      }
+    },
+    "main": "./dist/index.js"
+  }
+}

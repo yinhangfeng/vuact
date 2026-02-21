@@ -1,0 +1,35 @@
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+node_modules
+.DS_Store
+dist
+coverage
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+.eslintcache
+vite.config.ts.timestamp*
+config.ts.timestamp*
+vitest.config.ts.timestamp*
+
+package-lock.json
+yarn.lock
+
+/scripts/temp
+
+playground/types/components.d.ts
+playground/src/js-framework-benchmark
+

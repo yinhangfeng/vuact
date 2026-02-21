@@ -1,0 +1,7 @@
+packages:
+  - packages/*
+  - playground
+  - examples
+onlyBuiltDependencies:
+  - esbuild
+  - simple-git-hooks

@@ -1,0 +1,38 @@
+{
+  "name": "playground",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "clean": "rm -rf dist",
+    "playground:build": "vite build",
+    "playground:dev": "vite",
+    "playground:preview": "vite preview"
+  },
+  "dependencies": {
+    "@arco-design/web-react": "^2.65.0",
+    "vuact": "workspace:^",
+    "vuact-dom": "workspace:^",
+    "immutable": "^4.0.0",
+    "lodash-es": "^4.17.21",
+    "mobx": "^6.0.0",
+    "mobx-react-lite": "^4.0.0",
+    "prop-types": "^15.8.1",
+    "react": "*",
+    "react-dom": "*",
+    "react-is": "^19.0.0",
+    "react-redux": "^9.0.0",
+    "react-router-dom": "^6.26.1",
+    "redux": "^5.0.0",
+    "vue": "*",
+    "vue-router": "^4.2.5"
+  },
+  "devDependencies": {
+    "@types/react": "*",
+    "@types/react-dom": "*",
+    "@types/react-is": "^19.0.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "@vitejs/plugin-vue": "^5.0.0",
+    "@vitejs/plugin-vue-jsx": "^4.0.0"
+  }
+}

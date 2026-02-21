@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "composite": true,
+    "target": "ESNext",
+    "module": "ESNext",
+    "strict": true,
+    "allowSyntheticDefaultImports": true
+  }
+}
