@@ -1,0 +1,5 @@
+{
+  "vitest.nodeEnv": {
+    "NODE_ENV": "production"
+  }
+}

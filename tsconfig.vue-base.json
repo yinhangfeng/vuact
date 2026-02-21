@@ -1,0 +1,6 @@
+{
+  "extends": ["./tsconfig.dom-base"],
+  "compilerOptions": {
+    "types": ["vite/client"]
+  }
+}

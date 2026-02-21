@@ -1,0 +1,7 @@
+{
+  "extends": ["@tsconfig/node18/tsconfig.json", "./tsconfig.base.json"],
+  "compilerOptions": {
+    "module": "Node16",
+    "types": ["node"]
+  }
+}

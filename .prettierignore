@@ -1,0 +1,16 @@
+dist
+node_modules
+coverage
+pnpm-lock.yaml
+**/*.svg
+package.json
+**/*.md
+.husky
+.gitignore
+.eslintignore
+.prettierignore
+*.yaml
+*.sh
+*.ico
+**/__tests__/react-*
+**/js-framework-benchmark
