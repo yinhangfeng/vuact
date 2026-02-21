@@ -13,7 +13,7 @@ jobs:
     permissions:
       contents: write
       id-token: write
-    # environment: Release
+    environment: Release
     steps:
       - name: Checkout
         uses: actions/checkout@v4
