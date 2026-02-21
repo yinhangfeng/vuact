@@ -8,7 +8,7 @@ on:
 jobs:
   release:
     # prevents this action from running on forks
-    if: github.repository == 'https://github.com/yinhangfeng/vuact'
+    if: github.repository == 'yinhangfeng/vuact'
     runs-on: ubuntu-latest
     permissions:
       contents: write
