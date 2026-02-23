@@ -35,6 +35,8 @@ jobs:
 
       - name: Build examples
         run: pnpm --filter examples examples:build
+        env:
+          EXAMPLES_BASE: /${{ github.event.repository.name }}/
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3

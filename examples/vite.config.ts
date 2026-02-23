@@ -9,7 +9,10 @@ function resolvePath(path: string) {
 
 // https://vitejs.dev/config/
 export default defineConfig((env) => {
+  const base =
+    process.env.EXAMPLES_BASE ?? (env.command === 'serve' ? '/' : '/vuact/');
   return {
+    base,
     define: {
       __TEST_SCHEDULER__: true,
       __DEV__: env.command === 'serve',

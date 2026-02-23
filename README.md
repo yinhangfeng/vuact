@@ -166,6 +166,8 @@ package.json
 ```
 
 ## 例子
+https://yinhangfeng.github.io/vuact
+
 执行下面命令快速在本地运行例子
 ```bash
 git clone https://github.com/yinhangfeng/vuact.git
