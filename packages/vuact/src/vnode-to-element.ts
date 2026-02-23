@@ -1,4 +1,10 @@
-import { type VNodeChild, type VNode } from 'vue';
+import {
+  Fragment as VFragment,
+  Text as VText,
+  Comment as VComment,
+  type VNodeChild,
+  type VNode,
+} from 'vue';
 import {
   createBaseElement,
   createBaseElementWithDefaultProps,
@@ -15,6 +21,7 @@ import type {
 } from './types';
 import { setRawRef } from './utils/vue';
 import { ELEMENT_SLOT_PREFIX } from './constants';
+import { Fragment } from './fragment';
 
 /**
  * vue vnode 转 react element
@@ -37,11 +44,17 @@ export function vNodeToElement(vnode: VNodeChild): any {
       ) {
         // react-to-vue 转过来的组件，比如在 vue 中调用 react 组件传入了 react-to-vue 转换的 vnode
         element = reactComponentVNodeToElement(vnode);
+      } else if (type === VText) {
+        return vnode.children;
+      } else if (type === VFragment) {
+        element = fragmentVNodeToElement(vnode);
+      } else if (type === VComment) {
+        return null;
       } else {
         // vue component
         element = vueComponentVNodeToElement(vnode);
       }
-      // TODO 是否需要处理 Fragment 与 Teleport
+      // TODO 是否需要处理 Teleport
     }
 
     // 在 clone 时丢掉
@@ -80,6 +93,15 @@ function nativeVNodeToElement(vnode: VNode) {
     props,
     vnode.key,
     vueRefToReactRef(vnode.ref)
+  );
+}
+
+function fragmentVNodeToElement(vnode: VNode) {
+  return createBaseElement(
+    Fragment,
+    null,
+    vnode.key,
+    vNodeToElement(vnode.children as any)
   );
 }
 

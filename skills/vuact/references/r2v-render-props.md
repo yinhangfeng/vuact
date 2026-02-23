@@ -12,7 +12,9 @@ import RenderPropsComponent from './render-props';
 const VRenderPropsComponent = r2v(RenderPropsComponent);
 const VRenderPropsComponent2 = r2v(RenderPropsComponent, {
   slotsTransformConfig: {
+    // title slot 作为 element prop
     title: { elementProp: true },
+    // default slot 默认会作为 element prop，但这里不需要，所以关闭
     default: { elementProp: false },
   },
 });
