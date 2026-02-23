@@ -28,6 +28,9 @@ vitest.config.ts.timestamp*
 package-lock.json
 yarn.lock
 
+.agents
+.trae
+
 /scripts/temp
 
 playground/types/components.d.ts

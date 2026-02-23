@@ -64,6 +64,7 @@ import vue from '@vitejs/plugin-vue';
 
 export default defineConfig({
   resolve: {
+    // 将 react alias 到 vuact
     alias: {
       'react/jsx-runtime': 'vuact/jsx-runtime',
       'react/jsx-dev-runtime': 'vuact/jsx-dev-runtime',
@@ -73,9 +74,6 @@ export default defineConfig({
       'react-dom': 'vuact-dom',
     },
   },
-  plugins: [
-    vue(),
-  ],
   optimizeDeps: {
     // 设置 alias 之后能让 node_modules 中的模块（比如 react-redux）依赖的 react 改成 vuact，但是 vite 默认会将 node_modules
     // 中的依赖提前构建到 node_modules/.vite/deps 中，导致 alias 的 react(vuact) 1. 不会自动更新 2. 引入多份 vuact 3. cjs 模块引用 vuact esm 报错
@@ -103,9 +101,8 @@ export default defineConfig({
     },
   },
   plugins: [
-    vue(),
     (() => {
-      // 将 .react.jsx .react.tsx 文件认为是 react jsx，从 vueJsx 插件排除由 esbuild 处理
+      // 将 .react.jsx .react.tsx 文件认为是 react jsx，从 vueJsx 插件排除由 esbuild 直接处理
       const reactJsxReg = [
         /^.+\.react\.(j|t)sx$/,
       ];
@@ -178,6 +175,13 @@ pnpm examples
 
 ## 高级配置
 
+### 配置 scheduler
+
+在入口文件中所有代码执行之前执行 setupScheduler，会通过 hack 方式获取 vue 内部的 flushJobs 函数，以 实现模拟 ReactDOM.flushSync 等功能
+```ts
+import 'vuact/setup-scheduler';
+```
+
 ### 扩展 vue renderer
 用于支持 input change 事件等
 
@@ -188,7 +192,7 @@ package.json
   //...
   "pnpm": {
     "overrides": {
-      "@vue/runtime-dom": "npm:@vuact/runtime-dom@3.5.16-vuact.1"
+      "@vue/runtime-dom": "npm:@vuact/runtime-dom@3.5.28-vuact.2"
     }
   }
 }
