@@ -1,5 +1,10 @@
+中文 | [English](README.en-US.md)
+
 ## 什么是 Vuact
 Vuact = Vue + React 是一个在 Vue3 环境下模拟 React 运行时的兼容层，能够让开发者在 Vue 项目中调用 React 组件生态，也可将其视为一个高度兼容 React 的类 React 库。
+
+## ⚠️ 重要提示
+**当前项目处于早期开发阶段，仍不稳定，不建议在生产环境使用。**
 
 ## 使用场景
 - 在 Vue 应用中使用 React 组件
