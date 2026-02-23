@@ -46,7 +46,14 @@ const VCounter = r2v(Counter);
 </template>
 ```
 
-## 安装
+## 快速开始
+
+推荐使用 vuact skill
+```bash
+npx skills add yinhangfeng/vuact
+```
+
+### 安装
 在 Vue3 项目中执行以下命令安装
 ```sh
 pnpm add vuact vuact-dom
@@ -54,9 +61,9 @@ pnpm add vuact vuact-dom
 `vuact` 和 `vuact-dom` 分别对应 `react` 和 `react-dom`
 需要将 vue 版本升级到 3.5 以上
 
-## 配置
+### 配置
 
-### Vite
+#### Vite
 vite.config.js
 ```js
 import { defineConfig, loadEnv } from 'vite';
@@ -82,7 +89,7 @@ export default defineConfig({
 });
 ```
 
-#### 一个项目同时支持 React jsx 与 Vue jsx
+##### 一个项目同时支持 React jsx 与 Vue jsx
 vite.config.js
 ```js
 import { defineConfig, loadEnv } from 'vite';
@@ -137,7 +144,7 @@ tsconfig.json
 ```
 这里的 jsx 配置针对的是 esbuild 处理的 jsx，不会影响 vueJsx 插件
 
-### pnpm overrides 方式
+#### pnpm overrides 方式
 不依赖构建工具，使用 pnpm overrides 直接将 react react-dom 替换为 vuact vuact-dom
 
 package.json
@@ -171,6 +178,7 @@ pnpm examples
 - @vue/runtime-dom 无法与 react-dom 对齐的地方
   - react-dom 的 SyntheticEvent 系统实现了一套与标准 web 不同的事件系统，比如 input 输入时会触发 change 事件
   - react-dom 对一些原生 dom 做了特殊处理，比如 input form 等
+- 不支持 React19 RSC
 - 其它未完全对齐 React 的地方请在本项目搜索 `TODO vuact` 结合具体测试用例查看，按重要程度分为 `TODO vuact0` `TODO vuact1` `TODO vuact2` `TODO vuact3`，`TODO vuact0` 的影响最大
 
 ## 高级配置
@@ -207,3 +215,6 @@ import 'vuact/setup-renderer';
 - 部分设计思路来自 [Veaury](https://github.com/gloriasoft/veaury)
 - hooks 部分实现最初参考自 [Preact](https://github.com/preactjs/preact)
 - 测试用例是从 React 借来的
+
+## TODO
+- @vuact/runtime-dom 方案不是很好，希望 vue 能官方[导出 rendererOptions](https://github.com/vuejs/rfcs/discussions/767)
