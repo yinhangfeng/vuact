@@ -1,6 +1,6 @@
 {
   "name": "vuact",
-  "version": "0.1.0",
+  "version": "0.1.0-alpha.11",
   "type": "module",
   "description": "Vuact = Vue + React. It is a compatibility layer that simulates the React runtime in a Vue 3 environment.",
   "keywords": [
