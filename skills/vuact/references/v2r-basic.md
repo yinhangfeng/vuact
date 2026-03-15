@@ -10,6 +10,7 @@ v2r (vue-to-react) is a core Vuact function that converts a Vue component into a
 ## Vue Component
 
 First, you need a standard Vue component. Here is a simple counter example:
+`./counter.vue`:
 
 ```vue
 <script setup lang="ts">

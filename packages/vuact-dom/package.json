@@ -35,6 +35,10 @@
     "register-dom-components.js",
     "README.md"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yinhangfeng/vuact.git"
+  },
   "scripts": {
     "build": "vite build",
     "clean": "rm -rf dist"

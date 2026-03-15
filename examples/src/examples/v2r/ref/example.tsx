@@ -18,8 +18,8 @@ export default function Example() {
         incCount
       </button>
       <RCounter
-        ref={(ref) => {
-          ref?.incCount;
+        ref={(instance) => {
+          counterRef.current = instance;
         }}
         defaultCount={1}
       />
