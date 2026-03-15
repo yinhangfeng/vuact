@@ -6,7 +6,12 @@
   "keywords": [
     "react",
     "vue",
-    "vuact"
+    "vuact",
+    "react-in-vue",
+    "vue-in-react",
+    "react-to-vue",
+    "vue-to-react",
+    "react-vue-bridge"
   ],
   "license": "MIT",
   "exports": {
@@ -35,6 +40,10 @@
     "setup-scheduler.js",
     "README.md"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yinhangfeng/vuact.git"
+  },
   "scripts": {
     "build": "vite build",
     "clean": "rm -rf dist"

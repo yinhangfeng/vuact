@@ -1,6 +1,12 @@
 ---
 name: vuact
-description: Vuact best practices and integration guide. Use it to bring the React component ecosystem into Vue projects, or the Vue component ecosystem into React projects, with two-way interoperability for components, events, reactivity, Context, Ref, and more.
+description: >
+  Vuact best practices and integration guide. A React↔Vue bridge / interop library
+  that lets you use React components in Vue or Vue components in React with full
+  two-way interoperability — covering components, events, reactivity, Context, Ref,
+  and more. Use this skill whenever the user mentions react-in-vue, vue-in-react,
+  react-to-vue, vue-to-react, cross-framework component rendering, or any scenario
+  involving mixing React and Vue in the same project.
 ---
 
 # Vuact

@@ -2,6 +2,41 @@
 
 Use this when you want to pass data to a Vue component from React via React Context.
 
+`./context.ts`:
+
+```ts
+import { createContext } from 'react';
+
+export const CounterContext = createContext({
+  count: 0,
+  setCount: (count: number) => {},
+});
+```
+
+`./counter.vue`:
+
+```vue
+<script setup lang="ts">
+import { injectContext } from 'vuact';
+import { CounterContext } from './context';
+
+const counterContextRef = injectContext(CounterContext);
+
+function onClick() {
+  counterContextRef.value.setCount(counterContextRef.value.count + 1);
+}
+</script>
+
+<template>
+  <div>
+    <p>You clicked {{ counterContextRef.count }} times</p>
+    <button @click="onClick">Click me</button>
+  </div>
+</template>
+```
+
+`./example.tsx`:
+
 ```tsx
 import { v2r } from 'vuact';
 import { useState } from 'react';
@@ -25,7 +60,7 @@ export default function Example() {
 
   return (
     <CounterContext.Provider value={context}>
-      <RCounter defaultCount={1} />
+      <RCounter />
     </CounterContext.Provider>
   );
 }
