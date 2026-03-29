@@ -243,6 +243,13 @@ package.json
 import 'vuact/setup-renderer';
 ```
 
+## 性能
+整体性能在多数交互/渲染场景下接近 React，但由于跨框架适配层的开销，在极端 diff/大表场景略低于 React，内存占用仍有优化空间。可参考 JS Framework Benchmark 的对比结果：
+
+- 在线结果（Chrome 146）：https://krausest.github.io/js-framework-benchmark/2026/chrome146.html
+<img src="docs/benchmark.png" alt="benchmark" width="300" />
+
+
 ## 参考借鉴
 - 部分设计思路来自 [Veaury](https://github.com/gloriasoft/veaury)
 - hooks 部分实现最初参考自 [Preact](https://github.com/preactjs/preact)

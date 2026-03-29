@@ -247,6 +247,12 @@ package.json
 import 'vuact/setup-renderer';
 ```
 
+## Performance
+Overall performance is close to React for most interaction/rendering scenarios. Because Vuact bridges two runtimes, extreme diff/large-table cases may be slightly slower, and there is still room to reduce memory usage. See JS Framework Benchmark:
+
+- Online results (Chrome 146): https://krausest.github.io/js-framework-benchmark/2026/chrome146.html
+<img src="docs/benchmark.png" alt="benchmark" width="300" />
+
 ## References
 - Some design ideas come from [Veaury](https://github.com/gloriasoft/veaury)
 - The initial hooks implementation referenced [Preact](https://github.com/preactjs/preact)
