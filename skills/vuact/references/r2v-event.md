@@ -90,15 +90,37 @@ const value = ref('');
 </script>
 
 <template>
-  <!-- With v-model, the React component receives value and onUpdate:value -->
+  <!-- v-model uses modelValue + update:modelValue by default -->
   <VInput v-model="value" />
+  <!-- To use a custom prop name, use v-model:value -->
+  <!-- <VInput v-model:value="value" /> -->
 </template>
 ```
 
-The corresponding React component:
+The corresponding React component (default `v-model` uses `modelValue`):
 
 ```tsx
-export default function Input({ value, onUpdateValue }: { value: string; onUpdateValue: (value: string) => void }) {
+export default function Input({
+  modelValue,
+  'onUpdate:modelValue': onUpdateModelValue,
+}: {
+  modelValue: string;
+  'onUpdate:modelValue': (value: string) => void;
+}) {
+  return <input value={modelValue} onChange={(e) => onUpdateModelValue(e.target.value)} />;
+}
+```
+
+If you use `v-model:value` instead, the React component receives `value` and `onUpdate:value`:
+
+```tsx
+export default function Input({
+  value,
+  'onUpdate:value': onUpdateValue,
+}: {
+  value: string;
+  'onUpdate:value': (value: string) => void;
+}) {
   return <input value={value} onChange={(e) => onUpdateValue(e.target.value)} />;
 }
 ```

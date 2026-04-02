@@ -16,7 +16,14 @@ First, you need a standard Vue component. Here is a simple counter example:
 <script setup lang="ts">
 import { ref } from 'vue';
 
-const count = ref(0);
+interface Props {
+  defaultCount?: number;
+}
+const props = withDefaults(defineProps<Props>(), {
+  defaultCount: 0,
+});
+
+const count = ref(props.defaultCount);
 function incCount() {
   count.value += 1;
 }
@@ -31,6 +38,7 @@ function incCount() {
 ```
 
 This Vue component:
+- Accepts `defaultCount` as the initial value via props
 - Uses `ref` to manage internal state
 - Renders DOM elements and handles click events
 
@@ -55,3 +63,34 @@ export default function Example() {
 2. Call `v2r(VueComponent)` to get a React component
 3. Use it like a normal React component
 4. Props interop: React `className` and `style` are automatically transformed into Vue `class` and `style` (auto-adds `px` for unitless values)
+
+## Important Notes
+
+### v2r Component vs Normal React Component
+
+The v2r-converted component (`RCounter`) is still a **Vue component** at runtime but behaves like a React component from the consumer's perspective:
+
+| Aspect | v2r Component | Normal React Component |
+|--------|---------------|------------------------|
+| JSX usage | React JSX | React JSX |
+| Props | className → class | className |
+| Events | onClick, onChange | onClick, onChange |
+| Slots | Via `slot:name` prop | Via children |
+| State | Uses Vue's reactivity | Uses React hooks |
+
+### Key Limitations
+
+1. **Vue context**: v2r components use Vue's reactivity internally — they cannot be used outside a Vue app
+2. **Vue refs**: Internal state is Vue-based; `useRef` in React actually uses Vue's `ref`
+3. **Suspense**: Limited support for React Suspense with Vue Suspense integration
+4. **Native DOM events**: For input/select/textarea, ensure `setupRenderer` is imported for proper event handling
+
+### Props Transformation
+
+| React Prop | Vue Side Receives |
+|------------|-------------------|
+| `className="foo"` | `class="foo"` |
+| `style={{ height: 100 }}` | `style="height: 100px"` (px auto-added) |
+| `onClick={fn}` | `@click="fn"` |
+| `slot:header={<El />}` | `<template #header><El /></template>` |
+

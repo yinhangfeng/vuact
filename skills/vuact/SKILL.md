@@ -7,6 +7,13 @@ description: >
   and more. Use this skill whenever the user mentions react-in-vue, vue-in-react,
   react-to-vue, vue-to-react, cross-framework component rendering, or any scenario
   involving mixing React and Vue in the same project.
+
+  **AI Agent Trigger Conditions:**
+  - User wants to use/integrate React components in a Vue 3 project
+  - User wants to migrate from Vue to React gradually (or vice versa)
+  - User wants to use React libraries/components in a Vue app
+  - User asks about react-to-vue (r2v), vue-to-react (v2r), or vuact configuration
+  - User encounters issues with Vue + React interoperability
 ---
 
 # Vuact
@@ -20,6 +27,8 @@ Vuact is a React runtime compatibility layer for Vue 3. It enables seamless usag
 - Build cross-stack component libraries in a React-like way
 
 ## Quick Start
+
+For a quick lookup of common patterns, see [Quick Reference](references/quick-reference.md).
 
 For the full configuration and initialization flow, see [setup-config.md](references/setup-config.md).
 
