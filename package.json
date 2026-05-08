@@ -87,12 +87,12 @@
     "overrides": {
       "@types/react": "^18.0.0",
       "@types/react-dom": "^18.0.0",
-      "@vue/reactivity": "3.5.28",
+      "@vue/reactivity": "3.5.33",
       "@vue/runtime-dom": "npm:@vuact/runtime-dom@3.5.28-vuact.2",
-      "@vue/server-renderer": "3.5.28",
+      "@vue/server-renderer": "3.5.33",
       "react": "^18.0.0",
       "react-dom": "^18.0.0",
-      "vue": "3.5.28"
+      "vue": "3.5.33"
     }
   }
 }
