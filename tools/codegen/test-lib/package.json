@@ -1,0 +1,9 @@
+{
+  "name": "test-lib",
+  "version": "1.0.0",
+  "main": "src/index.tsx",
+  "types": "src/index.d.ts",
+  "peerDependencies": {
+    "react": ">=17.0.0"
+  }
+}

@@ -28,8 +28,6 @@
     ]
   },
   "devDependencies": {
-    "vuact": "workspace:^",
-    "vuact-dom": "workspace:^",
     "@eslint/compat": "^1.2.0",
     "@eslint/js": "^9.12.0",
     "@jest/expect-utils": "^29.7.0",
@@ -48,6 +46,7 @@
     "@vue/test-utils": "^2.4.3",
     "@vue/tsconfig": "^0.7.0",
     "chalk": "^5.3.0",
+    "commander": "^14.0.3",
     "enquirer": "^2.4.1",
     "eslint": "^9.0.0",
     "eslint-plugin-import": "^2.30.0",
@@ -74,12 +73,15 @@
     "scheduler": "0.23.2",
     "semver": "^7.7.1",
     "simple-git-hooks": "^2.11.1",
+    "ts-morph": "^28.0.0",
     "typescript": "^5.3.3",
     "use-sync-external-store": "^1.2.2",
     "vite": "^6.0.0",
     "vite-plugin-commonjs": "^0.10.0",
     "vite-plugin-dts": "^4.0.0",
     "vitest": "^3.0.0",
+    "vuact": "workspace:^",
+    "vuact-dom": "workspace:^",
     "vue": "*"
   },
   "packageManager": "pnpm@10.10.0",
