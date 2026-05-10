@@ -20,6 +20,7 @@ import type {
   VuactVueComponentTypeInner,
 } from './types';
 import { setRawRef } from './utils/vue';
+import { isOn } from './event';
 import { ELEMENT_SLOT_PREFIX } from './constants';
 import { Fragment } from './fragment';
 
@@ -166,6 +167,12 @@ export function vuePropsToReactProps(props: any) {
 /**
  * vue slot 转为 react prop 的配置
  */
+export interface VModelSpec {
+  modelName?: string;
+  prop: string;
+  event: string;
+}
+
 export interface SlotTransformConfig {
   /**
    * 是否将 slot 转为 element prop，立即执行 slot
@@ -188,9 +195,78 @@ export function componentToElement(
   attrs: Record<string, unknown>,
   slots: Record<string, any>,
   ref?: VuactElement['ref'],
-  slotsTransformConfig?: Record<string, SlotTransformConfig>
+  slotsTransformConfig?: Record<string, SlotTransformConfig>,
+  eventMapping?: {
+    stripOnPrefix?: boolean;
+    custom?: Record<string, string>;
+  },
+  vModel?: VModelSpec | VModelSpec[],
+  emit?: (event: string, ...args: any[]) => void
 ) {
   const props = vuePropsToReactProps(attrs);
+
+  if (eventMapping && emit) {
+    const custom = eventMapping.custom;
+    const stripOnPrefix = eventMapping.stripOnPrefix !== false;
+
+    for (const key in props) {
+      if (isOn(key) && typeof props[key] === 'function') {
+        let emitEventName: string | undefined;
+
+        if (custom && key in custom) {
+          emitEventName = custom[key];
+        } else if (stripOnPrefix) {
+          emitEventName = key.charAt(2).toLowerCase() + key.slice(3);
+        }
+
+        if (emitEventName) {
+          const name = emitEventName;
+          const mappedHandlerKey =
+            'on' + name.charAt(0).toUpperCase() + name.slice(1);
+
+          if (mappedHandlerKey === key) {
+            props[key] = (...args: any[]) => {
+              emit(name, ...args);
+            };
+          } else {
+            const originalHandler = props[key];
+            props[key] = (...args: any[]) => {
+              const result = originalHandler(...args);
+              emit(name, ...args);
+              return result;
+            };
+          }
+        }
+      }
+    }
+  }
+
+  if (vModel && emit) {
+    const specs = Array.isArray(vModel) ? vModel : [vModel];
+    for (const spec of specs) {
+      const modelName = spec.modelName || 'modelValue';
+      const updateKey = `onUpdate:${modelName}`;
+
+      if (modelName in props) {
+        if (modelName !== spec.prop) {
+          props[spec.prop] = props[modelName];
+          delete props[modelName];
+        }
+      }
+
+      if (updateKey in props) {
+        delete props[updateKey];
+      }
+
+      const originalEventHandler = props[spec.event];
+      props[spec.event] = (...args: any[]) => {
+        if (originalEventHandler) {
+          originalEventHandler(...args);
+        }
+        emit(`update:${modelName}`, args[0]);
+      };
+    }
+  }
 
   // 处理 slots
   // TODO 延迟计算?
