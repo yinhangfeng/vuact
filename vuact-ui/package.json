@@ -9,6 +9,7 @@
     "codegen": "pnpm --filter '@vuact/ant-design' run codegen"
   },
   "devDependencies": {
-    "typescript": "^5.5.0"
+    "typescript": "^5.5.0",
+    "antd": "^5.0.0"
   }
 }

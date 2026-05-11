@@ -1,0 +1,205 @@
+{
+  "version": "1.0.0",
+  "source": "antd",
+  "generatedAt": "2026-05-11T00:00:00.000Z",
+  "components": {
+    "Button": {
+      "source": { "module": "antd", "export": "Button" },
+      "meta": { "docUrl": "https://ant.design/components/button" }
+    },
+    "Input": {
+      "source": { "module": "antd", "export": "Input" },
+      "vModel": { "prop": "value", "event": "onChange" },
+      "slotsTransformConfig": {
+        "prefix": { "elementProp": true },
+        "suffix": { "elementProp": true }
+      },
+      "meta": { "docUrl": "https://ant.design/components/input" }
+    },
+    "Select": {
+      "source": { "module": "antd", "export": "Select" },
+      "vModel": { "prop": "value", "event": "onChange" },
+      "slotsTransformConfig": {
+        "dropdownRender": { "transformVNode": true },
+        "notFoundContent": { "elementProp": true }
+      },
+      "meta": { "docUrl": "https://ant.design/components/select" }
+    },
+    "Modal": {
+      "source": { "module": "antd", "export": "Modal" },
+      "vModel": [{ "modelName": "open", "prop": "open", "event": "onOpenChange" }],
+      "slotsTransformConfig": {
+        "footer": { "elementProp": true },
+        "children": { "elementProp": true }
+      },
+      "meta": { "experimental": true, "docUrl": "https://ant.design/components/modal" }
+    },
+    "Form": {
+      "source": { "module": "antd", "export": "Form" },
+      "meta": { "experimental": true, "needsManualReview": true, "docUrl": "https://ant.design/components/form" },
+      "subComponents": {
+        "Item": { "source": { "module": "antd", "export": "Form.Item" } },
+        "List": { "source": { "module": "antd", "export": "Form.List" } },
+        "Provider": { "source": { "module": "antd", "export": "Form.Provider" } }
+      }
+    },
+    "Table": {
+      "source": { "module": "antd", "export": "Table" },
+      "meta": { "experimental": true, "needsManualReview": true, "docUrl": "https://ant.design/components/table" }
+    },
+    "Switch": {
+      "source": { "module": "antd", "export": "Switch" },
+      "vModel": { "prop": "checked", "event": "onChange" },
+      "meta": { "docUrl": "https://ant.design/components/switch" }
+    },
+    "Checkbox": {
+      "source": { "module": "antd", "export": "Checkbox" },
+      "vModel": { "prop": "checked", "event": "onChange" },
+      "meta": { "docUrl": "https://ant.design/components/checkbox" }
+    },
+    "Radio": {
+      "source": { "module": "antd", "export": "Radio" },
+      "vModel": { "prop": "checked", "event": "onChange" },
+      "meta": { "docUrl": "https://ant.design/components/radio" }
+    },
+    "DatePicker": {
+      "source": { "module": "antd", "export": "DatePicker" },
+      "vModel": { "prop": "value", "event": "onChange" },
+      "meta": { "experimental": true, "docUrl": "https://ant.design/components/date-picker" }
+    },
+    "TreeSelect": {
+      "source": { "module": "antd", "export": "TreeSelect" },
+      "vModel": { "prop": "value", "event": "onChange" },
+      "meta": { "experimental": true, "docUrl": "https://ant.design/components/tree-select" }
+    },
+    "Cascader": {
+      "source": { "module": "antd", "export": "Cascader" },
+      "vModel": { "prop": "value", "event": "onChange" },
+      "meta": { "experimental": true, "docUrl": "https://ant.design/components/cascader" }
+    },
+    "AutoComplete": {
+      "source": { "module": "antd", "export": "AutoComplete" },
+      "vModel": { "prop": "value", "event": "onSearch" },
+      "meta": { "docUrl": "https://ant.design/components/auto-complete" }
+    },
+    "InputNumber": {
+      "source": { "module": "antd", "export": "InputNumber" },
+      "vModel": { "prop": "value", "event": "onChange" },
+      "meta": { "docUrl": "https://ant.design/components/input-number" }
+    },
+    "Transfer": {
+      "source": { "module": "antd", "export": "Transfer" },
+      "vModel": { "prop": "targetKeys", "event": "onChange" },
+      "meta": { "docUrl": "https://ant.design/components/transfer" }
+    },
+    "Tabs": {
+      "source": { "module": "antd", "export": "Tabs" },
+      "vModel": { "prop": "activeKey", "event": "onChange" },
+      "meta": { "docUrl": "https://ant.design/components/tabs" }
+    },
+    "Slider": {
+      "source": { "module": "antd", "export": "Slider" },
+      "vModel": { "prop": "value", "event": "onChange" },
+      "meta": { "docUrl": "https://ant.design/components/slider" }
+    },
+    "TimePicker": {
+      "source": { "module": "antd", "export": "TimePicker" },
+      "vModel": { "prop": "value", "event": "onChange" },
+      "meta": { "experimental": true, "docUrl": "https://ant.design/components/time-picker" }
+    },
+    "Upload": {
+      "source": { "module": "antd", "export": "Upload" },
+      "meta": { "docUrl": "https://ant.design/components/upload" }
+    },
+    "Tree": {
+      "source": { "module": "antd", "export": "Tree" },
+      "meta": { "experimental": true, "docUrl": "https://ant.design/components/tree" }
+    },
+    "Alert": {
+      "source": { "module": "antd", "export": "Alert" },
+      "meta": { "docUrl": "https://ant.design/components/alert" }
+    },
+    "Badge": {
+      "source": { "module": "antd", "export": "Badge" },
+      "meta": { "docUrl": "https://ant.design/components/badge" }
+    },
+    "Card": {
+      "source": { "module": "antd", "export": "Card" },
+      "slotsTransformConfig": {
+        "title": { "elementProp": true },
+        "extra": { "elementProp": true }
+      },
+      "meta": { "docUrl": "https://ant.design/components/card" }
+    },
+    "Collapse": {
+      "source": { "module": "antd", "export": "Collapse" },
+      "vModel": { "prop": "activeKey", "event": "onChange" },
+      "meta": { "docUrl": "https://ant.design/components/collapse" }
+    },
+    "Descriptions": {
+      "source": { "module": "antd", "export": "Descriptions" },
+      "meta": { "docUrl": "https://ant.design/components/descriptions" }
+    },
+    "Drawer": {
+      "source": { "module": "antd", "export": "Drawer" },
+      "vModel": [{ "modelName": "open", "prop": "open", "event": "onClose" }],
+      "slotsTransformConfig": {
+        "title": { "elementProp": true }
+      },
+      "meta": { "experimental": true, "docUrl": "https://ant.design/components/drawer" }
+    },
+    "Dropdown": {
+      "source": { "module": "antd", "export": "Dropdown" },
+      "meta": { "docUrl": "https://ant.design/components/dropdown" }
+    },
+    "List": {
+      "source": { "module": "antd", "export": "List" },
+      "meta": { "docUrl": "https://ant.design/components/list" }
+    },
+    "Pagination": {
+      "source": { "module": "antd", "export": "Pagination" },
+      "vModel": { "prop": "current", "event": "onChange" },
+      "meta": { "docUrl": "https://ant.design/components/pagination" }
+    },
+    "Popconfirm": {
+      "source": { "module": "antd", "export": "Popconfirm" },
+      "vModel": [{ "modelName": "open", "prop": "open", "event": "onOpenChange" }],
+      "meta": { "docUrl": "https://ant.design/components/popconfirm" }
+    },
+    "Popover": {
+      "source": { "module": "antd", "export": "Popover" },
+      "vModel": [{ "modelName": "open", "prop": "open", "event": "onOpenChange" }],
+      "meta": { "docUrl": "https://ant.design/components/popover" }
+    },
+    "Progress": {
+      "source": { "module": "antd", "export": "Progress" },
+      "meta": { "docUrl": "https://ant.design/components/progress" }
+    },
+    "Skeleton": {
+      "source": { "module": "antd", "export": "Skeleton" },
+      "meta": { "docUrl": "https://ant.design/components/skeleton" }
+    },
+    "Statistic": {
+      "source": { "module": "antd", "export": "Statistic" },
+      "meta": { "docUrl": "https://ant.design/components/statistic" }
+    },
+    "Steps": {
+      "source": { "module": "antd", "export": "Steps" },
+      "vModel": { "prop": "current", "event": "onChange" },
+      "meta": { "docUrl": "https://ant.design/components/steps" }
+    },
+    "Tag": {
+      "source": { "module": "antd", "export": "Tag" },
+      "meta": { "docUrl": "https://ant.design/components/tag" }
+    },
+    "Timeline": {
+      "source": { "module": "antd", "export": "Timeline" },
+      "meta": { "docUrl": "https://ant.design/components/timeline" }
+    },
+    "Tooltip": {
+      "source": { "module": "antd", "export": "Tooltip" },
+      "vModel": [{ "modelName": "open", "prop": "open", "event": "onOpenChange" }],
+      "meta": { "docUrl": "https://ant.design/components/tooltip" }
+    }
+  }
+}
