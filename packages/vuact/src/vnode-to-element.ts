@@ -5,10 +5,7 @@ import {
   type VNodeChild,
   type VNode,
 } from 'vue';
-import {
-  createBaseElement,
-  createBaseElementWithDefaultProps,
-} from './element';
+import { createBaseElement, createBaseElementWithDefaultProps } from './element';
 import { vueStyleToReactStyle } from './style';
 import { vueToReact } from './vue-to-react';
 import type {
@@ -22,6 +19,12 @@ import type {
 import { setRawRef } from './utils/vue';
 import { ELEMENT_SLOT_PREFIX } from './constants';
 import { Fragment } from './fragment';
+
+export interface VModelSpec {
+  modelName?: string;
+  prop: string;
+  event: string;
+}
 
 /**
  * vue vnode 转 react element
@@ -183,14 +186,72 @@ export interface SlotTransformConfig {
   transformVNode?: boolean;
 }
 
+function mapEventName(eventKey: string, eventMapping?: { stripOnPrefix?: boolean; custom?: Record<string, string> }): string | null {
+  if (!eventMapping) {
+    return null;
+  }
+  if (eventMapping.custom?.[eventKey]) {
+    return eventMapping.custom[eventKey];
+  }
+  if (eventMapping.stripOnPrefix !== false && eventKey.startsWith('on') && eventKey.length > 2) {
+    const rest = eventKey.slice(2);
+    return rest.charAt(0).toLowerCase() + rest.slice(1);
+  }
+  return null;
+}
+
+function isOnProp(key: string): boolean {
+  return key.startsWith('on') && key.length > 2 && key[2] === key[2].toUpperCase();
+}
+
 export function componentToElement(
   componentType: VuactFunctionComponent<any> | VuactComponentClass<any>,
   attrs: Record<string, unknown>,
   slots: Record<string, any>,
   ref?: VuactElement['ref'],
-  slotsTransformConfig?: Record<string, SlotTransformConfig>
+  slotsTransformConfig?: Record<string, SlotTransformConfig>,
+  vModel?: VModelSpec | VModelSpec[],
+  emit?: (event: string, ...args: any[]) => void,
+  eventMapping?: { stripOnPrefix?: boolean; custom?: Record<string, string> }
 ) {
   const props = vuePropsToReactProps(attrs);
+
+  if (vModel && vModel.length > 0 && emit) {
+    const specs = Array.isArray(vModel) ? vModel : [vModel];
+    for (const spec of specs) {
+      const modelName = spec.modelName || 'modelValue';
+      const modelValue = attrs[modelName];
+      if (modelValue !== undefined) {
+        props[spec.prop] = modelValue;
+      }
+      delete props[`onUpdate:${modelName}`];
+      const eventKey = spec.event;
+      const originalHandler = props[eventKey];
+      if (typeof originalHandler === 'function') {
+        props[eventKey] = (...args: any[]) => {
+          originalHandler(...args);
+          emit(`update:${modelName}`, args[0]);
+        };
+      }
+    }
+  }
+
+  if (emit && eventMapping) {
+    for (const key of Object.keys(props)) {
+      if (isOnProp(key)) {
+        const mappedName = mapEventName(key, eventMapping);
+        if (mappedName) {
+          const originalHandler = props[key];
+          props[key] = (...args: any[]) => {
+            emit(mappedName, ...args);
+            if (mappedName !== key) {
+              originalHandler(...args);
+            }
+          };
+        }
+      }
+    }
+  }
 
   // 处理 slots
   // TODO 延迟计算?

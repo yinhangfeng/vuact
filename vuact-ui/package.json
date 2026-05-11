@@ -1,0 +1,14 @@
+{
+  "name": "@vuact-ui/monorepo",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Vue 3 adapters for React UI libraries, powered by vuact",
+  "scripts": {
+    "build": "pnpm --filter vuact-codegen run build",
+    "test": "pnpm --filter '@vuact-ui/*' test",
+    "codegen": "pnpm --filter '@vuact/ant-design' run codegen"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.0"
+  }
+}

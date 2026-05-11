@@ -1,0 +1,25 @@
+{
+  "name": "@vuact/ant-design",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Vue 3 adapter for ant-design, powered by vuact",
+  "main": "./src/index.ts",
+  "exports": {
+    ".": {
+      "import": "./src/index.ts"
+    }
+  },
+  "peerDependencies": {
+    "vue": "^3.5.0",
+    "vuact": "^0.1.0",
+    "vuact-dom": "^0.1.0",
+    "antd": "workspace:*"
+  },
+  "devDependencies": {
+    "antd": "^5.0.0"
+  },
+  "scripts": {
+    "test": "vuact-ui-test contract && vuact-ui-test coverage",
+    "codegen": "vuact-codegen --source antd --entry node_modules/antd/es/index.d.ts --hints src/hints.ts --out src/components"
+  }
+}

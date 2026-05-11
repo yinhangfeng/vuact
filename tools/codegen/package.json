@@ -1,0 +1,34 @@
+{
+  "name": "vuact-codegen",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Vuact codegen tool - generates r2v wrapper code from React UI library d.ts files",
+  "bin": {
+    "vuact-codegen": "./dist/bin.js"
+  },
+  "exports": {
+    ".": {
+      "import": "./src/index.ts"
+    }
+  },
+  "main": "./src/index.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch"
+  },
+  "dependencies": {
+    "vuact": "workspace:^",
+    "ts-morph": "^21.0.0",
+    "commander": "^12.0.0"
+  },
+  "devDependencies": {
+    "tsup": "^8.0.0",
+    "typescript": "^5.5.0"
+  },
+  "peerDependencies": {
+    "vuact": "^0.1.0"
+  }
+}

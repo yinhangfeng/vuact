@@ -1,0 +1,11 @@
+{
+  "name": "@vuact-ui/coverage-scanner",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "L4 coverage scanner for vuact-ui adapter packages",
+  "main": "./src/index.ts",
+  "scripts": {
+    "test": "node ./src/index.ts"
+  },
+  "dependencies": {}
+}

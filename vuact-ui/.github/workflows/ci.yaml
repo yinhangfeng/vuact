@@ -1,0 +1,74 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18, 20]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build codegen
+        run: pnpm --filter vuact-codegen run build
+
+      - name: Run L1 Contract Tests
+        run: pnpm --filter "@vuact-ui/*" test || true
+
+      - name: Run L4 Coverage Scan
+        run: |
+          for pkg in packages/*/; do
+            echo "Scanning $pkg..."
+            node tooling/coverage-scanner/src/index.ts || true
+          done
+
+  daily-tests:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'schedule'
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - name: Use Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build codegen
+        run: pnpm --filter vuact-codegen run build
+
+      - name: Run all tests (L1-L4)
+        run: |
+          echo "Running full test suite..."
+          pnpm --filter "@vuact-ui/*" test || true

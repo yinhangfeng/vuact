@@ -28,11 +28,10 @@ import type {
   VuactInternalClassInstance,
   VuactInternalFunctionInstance,
 } from './types';
-import {
-  componentToElement,
-  type SlotTransformConfig,
-} from './vnode-to-element';
+import { componentToElement, type SlotTransformConfig, type VModelSpec } from './vnode-to-element';
 import { elementToVNode } from './element-to-vnode';
+
+export type { VModelSpec };
 import {
   useRenderContext,
   currentRenderingInstance,
@@ -48,6 +47,11 @@ import { isThenable } from './thenable';
 export interface ReactToVueOptions {
   useConfig?: () => VuactConfig;
   slotsTransformConfig?: Record<string, SlotTransformConfig>;
+  vModel?: VModelSpec | VModelSpec[];
+  eventMapping?: {
+    stripOnPrefix?: boolean;
+    custom?: Record<string, string>;
+  };
 }
 
 /**
@@ -72,7 +76,7 @@ export function reactToVue<
   const component = defineComponent({
     name: componentType.displayName ?? componentType.name,
     inheritAttrs: false,
-    setup(_, { attrs, slots, expose }) {
+    setup(_, { attrs, slots, expose, emit }) {
       const vInstance: VuactComponentInternalInstance = getCurrentInstance();
       const renderContext = useRenderContext();
       const config = useConfig();
@@ -147,7 +151,10 @@ export function reactToVue<
             vInstance.attrs,
             slots,
             internalInstance.imperativeHandleRef,
-            options.slotsTransformConfig
+            options.slotsTransformConfig,
+            options.vModel,
+            emit,
+            options.eventMapping
           );
         }
 

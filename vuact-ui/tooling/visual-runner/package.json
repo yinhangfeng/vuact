@@ -1,0 +1,11 @@
+{
+  "name": "@vuact-ui/visual-runner",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "L3 visual regression test runner for vuact-ui adapter packages",
+  "main": "./src/index.ts",
+  "scripts": {
+    "test": "node ./src/index.ts"
+  },
+  "dependencies": {}
+}

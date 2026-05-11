@@ -1,0 +1,14 @@
+{
+  "name": "@vuact-ui/contract-runner",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "L1 contract test runner for vuact-ui adapter packages",
+  "main": "./src/index.ts",
+  "scripts": {
+    "test": "node ./src/index.ts"
+  },
+  "dependencies": {
+    "vitest": "^2.0.0",
+    "@vue/test-utils": "^2.4.0"
+  }
+}
